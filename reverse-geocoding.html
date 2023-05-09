@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  Hello world
+  <script src="script.js"></script>
+
+
+
+
+view()
+async function view(){
+
+
+navigator.geolocation.getCurrentPosition((position)=>{
+
+    fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${position.coords.latitude}&lon=${position.coords.longitude}
+`)
+  .then(response => response.json())
+  .then(data => {
+    document.write(JSON.stringify(data));
+  })
+  .catch(error => console.error(error));
+
+ 
+
+
+
+})
+
+
+} 
+    
+  </script>
+</body>
+
+</html>
