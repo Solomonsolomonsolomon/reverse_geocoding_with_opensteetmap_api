@@ -18,8 +18,10 @@
 view()
 async function view(){
 
-
-navigator.geolocation.getCurrentPosition((position)=>{
+if(navigator.geolocation){
+  
+  
+  navigator.geolocation.getCurrentPosition((position)=>{
 
     fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${position.coords.latitude}&lon=${position.coords.longitude}
 `)
@@ -35,6 +37,12 @@ navigator.geolocation.getCurrentPosition((position)=>{
 
 })
 
+
+  
+  
+  }else{
+   document.write('geolocation is not enabled in this browser')
+  }
 
 } 
     
